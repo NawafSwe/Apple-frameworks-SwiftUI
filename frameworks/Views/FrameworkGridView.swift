@@ -17,35 +17,43 @@ struct FrameworkGridView: View {
         ,GridItem(.flexible())
     ]
     
-    
     var body: some View {
-        LazyVGrid(columns:columns){
-            FrameworkTitleView(name: "ClassKit", image: "classkit")
-            FrameworkTitleView(name: "ClassKit", image: "classkit")
-            FrameworkTitleView(name: "ClassKit", image: "classkit")
-            FrameworkTitleView(name: "ClassKit", image: "classkit")
+        //navigation view
+        NavigationView {
+            //scroll view for lazyVGrid
+            ScrollView{
+                LazyVGrid(columns:columns){
+                        ForEach(MockData.frameworks, id: \.id) { framework in
+                            FrameworkTitleView(framework: framework)
+                                
+                        
+                    }
+                    
+                }
+            }
+         //navigation modifiers
+            .navigationTitle(Text("🍎Frameworks"))
         }
-    
+        
     }
 }
 
 struct FrameworkGridView_Previews: PreviewProvider {
     static var previews: some View {
         FrameworkGridView()
+            .preferredColorScheme(.dark)
     }
 }
  //MARK:- FrameworkTitleView
 struct FrameworkTitleView : View{
-    let name: String
-    let image: String
+    let framework: Framework
     var body: some View{
         //creating VStack that holds the framework icon and name
         VStack{
-            Image("\(image)")
+            Image("\(framework.imageName)")
                 .resizable()
-                .frame(width: 100, height: 100)
-                .aspectRatio(contentMode: .fill)
-            Text("\(name)")
+                .frame(width: 90, height: 90)
+            Text("\(framework.name)")
                 .font(.title)
                 .fontWeight(.semibold)
                 //making the text shrinks if need it
@@ -53,6 +61,7 @@ struct FrameworkTitleView : View{
             //minimum shrink
                 .minimumScaleFactor(0.5)
         }
+        .padding()
 
     }
 }

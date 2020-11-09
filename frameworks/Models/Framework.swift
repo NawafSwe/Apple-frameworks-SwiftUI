@@ -7,7 +7,8 @@
 
 import Foundation
  //MARK:- Framework model where the data of framework lives
-struct Framework{
+struct Framework : Hashable,Identifiable{
+    let id = UUID()
     let name : String
     let imageName : String
     let urlString : String
