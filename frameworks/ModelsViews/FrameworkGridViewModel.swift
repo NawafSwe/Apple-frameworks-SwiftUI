@@ -17,5 +17,13 @@ import SwiftUI
  */
 final class FrameworkGridViewModel : ObservableObject{
     //if selected framework
-    var selectedFramework : Framework?
+    var selectedFramework : Framework? {
+        //if the frameWork been set make showDetail true which is the mean of didSet is to check
+        didSet{
+            self.isShowingDetail = true 
+        }
+    }
+    
+    // Published to listen to any change for the variable
+  @Published var isShowingDetail : Bool = false
 }

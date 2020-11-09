@@ -10,11 +10,30 @@ import SwiftUI
 struct FrameworkDetailView: View {
      //MARK:- States
     @State var frameWork: Framework
+    @Binding var isShowingDetailView : Bool
     
     var body: some View {
         VStack{
             //X mark button to dismiss from current view
-            XmarkButtonView()
+            HStack{
+                Spacer()
+                
+                Button(action: {
+                    //because it is linked to viewModel it will dismiss its self from the sheet because it is published
+                    self.isShowingDetailView = false
+                
+                }, label: {
+                    Image(systemName: "xmark")
+                        //.label black in white mode and white in dark mode
+                        .foregroundColor(Color(.label))
+                        .imageScale(.large)
+                        // 44 is a touch target
+                        .frame(width:44, height: 44)
+                })
+                
+                
+            }
+            .padding()
                    
             Spacer()
             //framework title view
@@ -36,30 +55,11 @@ struct FrameworkDetailView: View {
 }
 struct FrameworkDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FrameworkDetailView(frameWork: MockData.sampleFramework)
+        FrameworkDetailView(frameWork: MockData.sampleFramework, isShowingDetailView: .constant(false))
             .preferredColorScheme(.dark)
     }
 }
 
 
 
-struct XmarkButtonView: View {
-    var body: some View {
-        HStack{
-            Spacer()
-            
-            Button(action: {}, label: {
-                Image(systemName: "xmark")
-                    //.label black in white mode and white in dark mode
-                    .foregroundColor(Color(.label))
-                    .imageScale(.large)
-                    // 44 is a touch target
-                    .frame(width:44, height: 44)
-            })
-            
-            
-        }
-        .padding()
-       
-    }
-}
+

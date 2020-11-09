@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FrameworkGridView: View {
      //MARK:- States
-    @State var showDetail = false
+
     //using stateObject when injecting an object.
     @StateObject var viewModel : FrameworkGridViewModel = FrameworkGridViewModel()
     //MARK:- Variables
@@ -30,11 +30,9 @@ struct FrameworkGridView: View {
                                         .onTapGesture(perform: {
                                             //making selected framework be the clicked framework
                                             self.viewModel.selectedFramework = framework
-                                            //making show details true
-                                            self.showDetail = true
                                         })
-                                        //as long as show detail is true it means there is selected framework so unwrap it ! safely
-                                        .sheet(isPresented: self.$showDetail, content: {FrameworkDetailView(frameWork: self.viewModel.selectedFramework!)})
+                                        //if in case that the selectedFramework is nil you can create a custom view that tells the user does not exist or error but in this case we will pass the sample frame work if nil.
+                                        .sheet(isPresented: self.$viewModel.isShowingDetail, content: {FrameworkDetailView(frameWork: self.viewModel.selectedFramework ?? MockData.sampleFramework,isShowingDetailView: self.$viewModel.isShowingDetail)})
                                      
                     }
                 }
@@ -45,7 +43,6 @@ struct FrameworkGridView: View {
         
     }
 }
-
 struct FrameworkGridView_Previews: PreviewProvider {
     static var previews: some View {
             FrameworkGridView()
