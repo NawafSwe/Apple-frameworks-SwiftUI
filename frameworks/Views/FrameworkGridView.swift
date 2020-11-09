@@ -9,7 +9,9 @@ import SwiftUI
 
 struct FrameworkGridView: View {
      //MARK:- States
-    
+    @State var showDetail = false
+    //using stateObject when injecting an object.
+    @StateObject var viewModel : FrameworkGridViewModel = FrameworkGridViewModel()
     //MARK:- Variables
     //creating lazy grid , flexible telling him fill the size of the screen as much as you can
     //each gridItem inside the grid item array represents number of columns
@@ -23,11 +25,18 @@ struct FrameworkGridView: View {
             ScrollView{
                 LazyVGrid(columns:columns){
                         ForEach(MockData.frameworks, id: \.id) { framework in
-                            FrameworkTitleView(framework: framework)
-                                
-                        
+                            //making navigation links to navigate to detail view
+                                    FrameworkTitleView(framework: framework)
+                                        .onTapGesture(perform: {
+                                            //making selected framework be the clicked framework
+                                            self.viewModel.selectedFramework = framework
+                                            //making show details true
+                                            self.showDetail = true
+                                        })
+                                        //as long as show detail is true it means there is selected framework so unwrap it ! safely
+                                        .sheet(isPresented: self.$showDetail, content: {FrameworkDetailView(frameWork: self.viewModel.selectedFramework!)})
+                                     
                     }
-                    
                 }
             }
          //navigation modifiers
@@ -39,11 +48,10 @@ struct FrameworkGridView: View {
 
 struct FrameworkGridView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
             FrameworkGridView()
                 .preferredColorScheme(.dark)
            
-        }
+        
     }
 }
  //MARK:- FrameworkTitleView

@@ -9,9 +9,8 @@ import SwiftUI
 
 struct FrameworkDetailView: View {
      //MARK:- States
+    @State var frameWork: Framework
     
-     //MARK:- Variables
-    var frameWork: Framework
     var body: some View {
         VStack{
             //X mark button to dismiss from current view

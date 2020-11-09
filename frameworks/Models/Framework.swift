@@ -13,7 +13,7 @@ struct Framework : Hashable,Identifiable{
     let imageName : String
     let urlString : String
     let description : String
-}
+    }
 
  //MARK:- MockData for frameworks
 struct MockData {

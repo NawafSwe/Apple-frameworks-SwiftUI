@@ -15,6 +15,7 @@
 		394681F42559922900F9998D /* FrameworkGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394681F32559922900F9998D /* FrameworkGridView.swift */; };
 		394681F82559B32C00F9998D /* FrameworkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394681F72559B32C00F9998D /* FrameworkDetailView.swift */; };
 		394682012559C10100F9998D /* AFButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394682002559C10100F9998D /* AFButtonView.swift */; };
+		394682052559CC7D00F9998D /* FrameworkGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394682042559CC7D00F9998D /* FrameworkGridViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		394681F32559922900F9998D /* FrameworkGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkGridView.swift; sourceTree = "<group>"; };
 		394681F72559B32C00F9998D /* FrameworkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkDetailView.swift; sourceTree = "<group>"; };
 		394682002559C10100F9998D /* AFButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFButtonView.swift; sourceTree = "<group>"; };
+		394682042559CC7D00F9998D /* FrameworkGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkGridViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				394681EC2559904200F9998D /* Models */,
+				394682032559CC6100F9998D /* ModelsViews */,
 				394681F12559920C00F9998D /* Views */,
 				394681DC25598F5100F9998D /* frameworksApp.swift */,
 				394681DE25598F5100F9998D /* ContentView.swift */,
@@ -95,6 +98,14 @@
 				394682002559C10100F9998D /* AFButtonView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		394682032559CC6100F9998D /* ModelsViews */ = {
+			isa = PBXGroup;
+			children = (
+				394682042559CC7D00F9998D /* FrameworkGridViewModel.swift */,
+			);
+			path = ModelsViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +182,7 @@
 				394681F42559922900F9998D /* FrameworkGridView.swift in Sources */,
 				394682012559C10100F9998D /* AFButtonView.swift in Sources */,
 				394681EE2559906000F9998D /* Framework.swift in Sources */,
+				394682052559CC7D00F9998D /* FrameworkGridViewModel.swift in Sources */,
 				394681DD25598F5100F9998D /* frameworksApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
