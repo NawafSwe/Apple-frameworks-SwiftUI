@@ -13,8 +13,7 @@ struct FrameworkGridView: View {
     //MARK:- Variables
     //creating lazy grid , flexible telling him fill the size of the screen as much as you can
     //each gridItem inside the grid item array represents number of columns
-    let columns : [GridItem] = [GridItem(.flexible()) ,GridItem(.flexible())
-        ,GridItem(.flexible())
+    let columns : [GridItem] = [GridItem(.flexible()) ,GridItem(.flexible()) ,GridItem(.flexible())
     ]
     
     var body: some View {
@@ -40,8 +39,11 @@ struct FrameworkGridView: View {
 
 struct FrameworkGridView_Previews: PreviewProvider {
     static var previews: some View {
-        FrameworkGridView()
-            .preferredColorScheme(.dark)
+        Group {
+            FrameworkGridView()
+                .preferredColorScheme(.dark)
+           
+        }
     }
 }
  //MARK:- FrameworkTitleView

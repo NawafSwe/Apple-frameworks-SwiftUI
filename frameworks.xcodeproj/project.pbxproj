@@ -13,6 +13,7 @@
 		394681E425598F5200F9998D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394681E325598F5200F9998D /* Preview Assets.xcassets */; };
 		394681EE2559906000F9998D /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394681ED2559906000F9998D /* Framework.swift */; };
 		394681F42559922900F9998D /* FrameworkGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394681F32559922900F9998D /* FrameworkGridView.swift */; };
+		394681F82559B32C00F9998D /* FrameworkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394681F72559B32C00F9998D /* FrameworkDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		394681E525598F5200F9998D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		394681ED2559906000F9998D /* Framework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Framework.swift; sourceTree = "<group>"; };
 		394681F32559922900F9998D /* FrameworkGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkGridView.swift; sourceTree = "<group>"; };
+		394681F72559B32C00F9998D /* FrameworkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +58,8 @@
 		394681DB25598F5100F9998D /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				394681F12559920C00F9998D /* Views */,
 				394681EC2559904200F9998D /* Models */,
+				394681F12559920C00F9998D /* Views */,
 				394681DC25598F5100F9998D /* frameworksApp.swift */,
 				394681DE25598F5100F9998D /* ContentView.swift */,
 				394681E025598F5200F9998D /* Assets.xcassets */,
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				394681F32559922900F9998D /* FrameworkGridView.swift */,
+				394681F72559B32C00F9998D /* FrameworkDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				394681DF25598F5100F9998D /* ContentView.swift in Sources */,
+				394681F82559B32C00F9998D /* FrameworkDetailView.swift in Sources */,
 				394681F42559922900F9998D /* FrameworkGridView.swift in Sources */,
 				394681EE2559906000F9998D /* Framework.swift in Sources */,
 				394681DD25598F5100F9998D /* frameworksApp.swift in Sources */,
