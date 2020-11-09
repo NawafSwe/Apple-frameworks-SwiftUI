@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct FrameworkDetailView: View {
+     //MARK:- States
+    
+     //MARK:- Variables
     var frameWork: Framework
     var body: some View {
         VStack{
+            //X mark button to dismiss from current view
+            XmarkButtonView()
+                   
             Spacer()
             //framework title view
             FrameworkTitleView(framework: frameWork)
@@ -37,3 +43,24 @@ struct FrameworkDetailView_Previews: PreviewProvider {
 }
 
 
+
+struct XmarkButtonView: View {
+    var body: some View {
+        HStack{
+            Spacer()
+            
+            Button(action: {}, label: {
+                Image(systemName: "xmark")
+                    //.label black in white mode and white in dark mode
+                    .foregroundColor(Color(.label))
+                    .imageScale(.large)
+                    // 44 is a touch target
+                    .frame(width:44, height: 44)
+            })
+            
+            
+        }
+        .padding()
+       
+    }
+}
