@@ -11,7 +11,8 @@ import SwiftUI
 struct frameworksApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //put the initial view to start with
+            FrameworkGridView()
         }
     }
 }
