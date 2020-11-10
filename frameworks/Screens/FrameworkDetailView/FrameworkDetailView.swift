@@ -11,30 +11,12 @@ struct FrameworkDetailView: View {
      //MARK:- States
     @State var frameWork: Framework
     @Binding var isShowingDetailView : Bool
-    @State var showSafariDetail: Bool = false
+    @State private var showSafariDetail: Bool = false
     
     var body: some View {
         VStack{
             //X mark button to dismiss from current view
-            HStack{
-                Spacer()
-                
-                Button(action: {
-                    //because it is linked to viewModel it will dismiss its self from the sheet because it is published
-                    self.isShowingDetailView = false
-                
-                }, label: {
-                    Image(systemName: "xmark")
-                        //.label black in white mode and white in dark mode
-                        .foregroundColor(Color(.label))
-                        .imageScale(.large)
-                        // 44 is a touch target
-                        .frame(width:44, height: 44)
-                })
-                
-                
-            }
-            .padding()
+            XmarkView(dissmis: self.$isShowingDetailView)
                    
             Spacer()
             //framework title view
@@ -54,8 +36,8 @@ struct FrameworkDetailView: View {
             })
         
             .sheet(isPresented: self.$showSafariDetail){
-                //do not unwrap URL unless you are sure
-                SafariView(url: URL(string: self.frameWork.urlString)!)
+                //if there is no url redirect user to apple.com or your server side with custom page
+                SafariView(url: URL(string: self.frameWork.urlString) ?? URL(string:"www.apple.com")!)
             }
                 }
         .padding(.vertical,50)

@@ -12,18 +12,14 @@ struct FrameworkGridView: View {
 
     //using stateObject when injecting an object.
     @StateObject var viewModel : FrameworkGridViewModel = FrameworkGridViewModel()
-    //MARK:- Variables
-    //creating lazy grid , flexible telling him fill the size of the screen as much as you can
-    //each gridItem inside the grid item array represents number of columns
-    let columns : [GridItem] = [ GridItem(.flexible()) ,GridItem(.flexible()) ,GridItem(.flexible()) ]
-    
+   
     var body: some View {
         //navigation view
         NavigationView {
             //scroll view for lazyVGrid
             ScrollView{
                 //LazyGrid to not load everything at once
-                LazyVGrid(columns:columns){
+                LazyVGrid(columns:self.viewModel.columns){
                         ForEach(MockData.frameworks, id: \.id) { framework in
                             //making navigation links to navigate to detail view
                                     FrameworkTitleView(framework: framework)
@@ -51,26 +47,5 @@ struct FrameworkGridView_Previews: PreviewProvider {
                 .preferredColorScheme(.dark)
            
         
-    }
-}
- //MARK:- FrameworkTitleView
-struct FrameworkTitleView : View{
-    let framework: Framework
-    var body: some View{
-        //creating VStack that holds the framework icon and name
-        VStack{
-            Image("\(framework.imageName)")
-                .resizable()
-                .frame(width: 90, height: 90)
-            Text("\(framework.name)")
-                .font(.title)
-                .fontWeight(.semibold)
-                //making the text shrinks if need it
-                .scaledToFit()
-            //minimum shrink
-                .minimumScaleFactor(0.5)
-        }
-        .padding()
-
     }
 }

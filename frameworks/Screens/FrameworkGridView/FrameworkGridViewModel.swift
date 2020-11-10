@@ -19,11 +19,13 @@ final class FrameworkGridViewModel : ObservableObject{
     //if selected framework
     var selectedFramework : Framework? {
         //if the frameWork been set make showDetail true which is the mean of didSet is to check
-        didSet{
-            self.isShowingDetail = true 
-        }
+        didSet{ self.isShowingDetail = true }
     }
     
     //Published to listen to any change for the variable and use it or do action for it.
   @Published var isShowingDetail : Bool = false
+    
+    //creating lazy grid , flexible telling him fill the size of the screen as much as you can
+    //each gridItem inside the grid item array represents number of columns
+    let columns : [GridItem] = [ GridItem(.flexible()) ,GridItem(.flexible()) ,GridItem(.flexible()) ]
 }
