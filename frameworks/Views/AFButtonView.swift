@@ -12,9 +12,7 @@ struct AFButtonView: View {
    //title of the button
    var title: String
    var body: some View{
-       Button(action: {
-           print("button printed")
-       }, label: {
+     
            Text("\(title)")
                .font(.title2)
                .fontWeight(.semibold)
@@ -23,7 +21,7 @@ struct AFButtonView: View {
                .foregroundColor(.white)
                .clipShape(RoundedRectangle(cornerRadius: 10))
                
-       })
+       
    }
 }
 

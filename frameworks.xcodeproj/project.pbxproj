@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391B6CED255A74BF009FD157 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391B6CEC255A74BF009FD157 /* SafariView.swift */; };
 		394681DD25598F5100F9998D /* frameworksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394681DC25598F5100F9998D /* frameworksApp.swift */; };
 		394681DF25598F5100F9998D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394681DE25598F5100F9998D /* ContentView.swift */; };
 		394681E125598F5200F9998D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394681E025598F5200F9998D /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		391B6CEC255A74BF009FD157 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		394681D925598F5100F9998D /* frameworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = frameworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		394681DC25598F5100F9998D /* frameworksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frameworksApp.swift; sourceTree = "<group>"; };
 		394681DE25598F5100F9998D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				394681F32559922900F9998D /* FrameworkGridView.swift */,
 				394681F72559B32C00F9998D /* FrameworkDetailView.swift */,
 				394682002559C10100F9998D /* AFButtonView.swift */,
+				391B6CEC255A74BF009FD157 /* SafariView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				394681F82559B32C00F9998D /* FrameworkDetailView.swift in Sources */,
 				394681F42559922900F9998D /* FrameworkGridView.swift in Sources */,
 				394682012559C10100F9998D /* AFButtonView.swift in Sources */,
+				391B6CED255A74BF009FD157 /* SafariView.swift in Sources */,
 				394681EE2559906000F9998D /* Framework.swift in Sources */,
 				394682052559CC7D00F9998D /* FrameworkGridViewModel.swift in Sources */,
 				394681DD25598F5100F9998D /* frameworksApp.swift in Sources */,

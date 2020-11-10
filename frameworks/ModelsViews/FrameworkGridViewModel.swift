@@ -24,6 +24,6 @@ final class FrameworkGridViewModel : ObservableObject{
         }
     }
     
-    // Published to listen to any change for the variable
+    //Published to listen to any change for the variable and use it or do action for it.
   @Published var isShowingDetail : Bool = false
 }
