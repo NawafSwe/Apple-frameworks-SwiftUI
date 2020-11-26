@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct FrameworkGridView: View {
-     //MARK:- States
-
+    //MARK:- States
+    
     //using stateObject when injecting an object.
     @StateObject var viewModel : FrameworkGridViewModel = FrameworkGridViewModel()
-   
+    
     var body: some View {
         //navigation view
         NavigationView {
@@ -20,22 +20,23 @@ struct FrameworkGridView: View {
             ScrollView{
                 //LazyGrid to not load everything at once
                 LazyVGrid(columns:self.viewModel.columns){
-                        ForEach(MockData.frameworks, id: \.id) { framework in
-                            //making navigation links to navigate to detail view
-                                    FrameworkTitleView(framework: framework)
-                                        .onTapGesture(perform: {
-                                            //making selected framework be the current clicked framework
-                                            self.viewModel.selectedFramework = framework
-                                        })
-                                        //if in case that the selectedFramework is nil you can create a custom view that tells the user does not exist or error but in this case we will pass the sample frame work if nil , if the viewModel.isShowingDetail updated to false the sheet will dismiss it self.
-                                        .sheet(isPresented: self.$viewModel.isShowingDetail){
-                                            //content
-                                            FrameworkDetailView(frameWork: self.viewModel.selectedFramework ?? MockData.sampleFramework,isShowingDetailView: self.$viewModel.isShowingDetail)}
-                                     
+                    ForEach(MockData.frameworks, id: \.id) { framework in
+                        //making navigation links to navigate to detail view
+                        FrameworkTitleView(framework: framework)
+                            .onTapGesture(perform: {
+                                //making selected framework be the current clicked framework
+                                self.viewModel.selectedFramework = framework
+                            })
+                            //if in case that the selectedFramework is nil you can create a custom view that tells the user does not exist or error but in this case we will pass the sample frame work if nil , if the viewModel.isShowingDetail updated to false the sheet will dismiss it self.
+                            .sheet(isPresented: self.$viewModel.isShowingDetail){
+                                //content
+                                /// injecting the frameDetail view model with the current data from here
+                                FrameworkDetailView(viewModel: FrameworkDetailViewModel(framework: viewModel.selectedFramework ?? MockData.sampleFramework, isShowingDetailView: $viewModel.isShowingDetail))}
+                        
                     }
                 }
             }
-         //navigation modifiers
+            //navigation modifiers
             .navigationTitle(Text("🍎Frameworks"))
         }
         
@@ -43,9 +44,9 @@ struct FrameworkGridView: View {
 }
 struct FrameworkGridView_Previews: PreviewProvider {
     static var previews: some View {
-            FrameworkGridView()
-                .preferredColorScheme(.dark)
-           
+        FrameworkGridView()
+            .preferredColorScheme(.dark)
+        
         
     }
 }
